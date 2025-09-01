@@ -38,8 +38,8 @@
         const addonExecutor = new AddonExecutor();
         const termLib = new TerminalLib(term, vOS, addonExecutor);
 
-        // Register the self-contained reactor game addon
-        addonExecutor.registerAddon(new ReactorAddon());
+        // TODO: Implement and register the ReactorAddon
+        // addonExecutor.registerAddon(new ReactorAddon());
 
         // Populate the file system
         populateFileSystem(vOS);
@@ -59,7 +59,7 @@
         // --- Initial Welcome Message ---
         term.print("Welcome to the CWP Terminal.");
         term.print("Type 'help' for a list of commands.");
-        term.print("Type 'run reactor' to start the game.");
+        // term.print("Type 'run reactor' to start the game.");
 
         inputElement.focus();
         document.body.addEventListener('click', () => inputElement.focus());
