@@ -26,9 +26,8 @@
 
     <script src="./js/terminal.js"></script>
     <script type="module">
-        import { Terminal, TerminalLib, VirtualOS, AddonExecutor } from './js/centralTerminal.js';
+        import { Terminal, TerminalLib, VirtualOS, AddonExecutor } from '../../node_modules/@clockworksproduction-studio/cwp-open-terminal-emulator/dist/terminal.js';
         import { populateFileSystem } from './js/filesystem_addon.js';
-        // Import the fully refactored game addon
 
         // --- Initialization ---
         const outputDiv = document.getElementById('terminalOutput');
@@ -39,10 +38,7 @@
         const addonExecutor = new AddonExecutor();
         const termLib = new TerminalLib(term, vOS, addonExecutor);
 
-        // TODO: Implement and register the ReactorAddon
-        // addonExecutor.registerAddon(new ReactorAddon());
-
-        // Populate the file system
+        // Populate the file system with your custom files and commands
         populateFileSystem(vOS);
 
         // --- Event Listener ---
@@ -60,7 +56,6 @@
         // --- Initial Welcome Message ---
         term.print("Welcome to the CWP Terminal.");
         term.print("Type 'help' for a list of commands.");
-        // term.print("Type 'run reactor' to start the game.");
 
         inputElement.focus();
         document.body.addEventListener('click', () => inputElement.focus());

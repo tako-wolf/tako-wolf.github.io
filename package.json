@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@clockworksproduction-studio/cwp-open-terminal-emulator": "^4.0.0"
+  }
+}
