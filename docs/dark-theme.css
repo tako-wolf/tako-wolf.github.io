@@ -1,0 +1,7 @@
+@media (prefers-color-scheme: dark) {
+    body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    text-shadow: 1px 1px darkgray;
+    }
+}

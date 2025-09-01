@@ -1,0 +1,30 @@
+<div class="w3-top">
+    <div class="w3-bar w3-card" id="myNavbar">
+        <a href="/index.html" class="w3-bar-item w3-botton w3-wide">
+            <img src="" alt="Blubs pond logo" class="logo"/>
+        </a>
+        <!-- nav bar go here -->
+        <div class="nav-links">
+            <a href="/fan-art.html" class="nav-link w3-bar-item w3-button">FAN ART</a>
+            <a href="/best-of-blub.html" class="nav-link w3-bar-item w3-button">Best of Blubs</a>
+            <a href="/commissions.html" class="nav-link w3-bar-item w3-button">Commissions</a>
+            <a href="/terminal/cmd.html" class="nav-link w3-bar-item w3-button">Blub's Terminal</a>
+            <button id="theme-toggle-nav" class="nav-link w3-bar-item w3-botton" onclick="toggleTheme()">DARK</button>
+        </div>
+
+        <!-- Hide right-floated links on medium and large screens and replace them with a menu icon -->
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-gray w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <button id="theme-toggle-side" class="nav-link w3-bar-item" onclick="toggleTheme()">DARK</button>
+    <a href="/index.html" onclick="w3_close()" class="nav-link w3-bar-item w3-button">HOME</a>
+    <a href="/fan-art.html" onclick="w3_close()" class="nav-link w3-bar-item w3-button">FAN ART</a>
+    <a href="/best-of-blub.html" onclick="w3_close()" class="nav-link w3-bar-item w3-button">Best of Blubs</a>
+    <a href="/commissions.html" onclick="w3_close()" class="nav-link w3-bar-item w3-button">Commissions</a>
+</nav>

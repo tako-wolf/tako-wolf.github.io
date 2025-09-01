@@ -1,0 +1,9 @@
+/* common.css */
+
+body {
+    background-color: #000000; /* Black background */
+    color: #00ff00; /* Green text */
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+}
+
+/* Add other common styles here */

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/cmd.css">
+    <link rel="stylesheet" href="css/reactorCtrlStyle.css">
+</head>
+<body>
+    <div id="pseudo-terminal">
+        <div id="game-area-container" style="display: none;">
+            <div id="stat-bar">
+                <p>Time: <span id="inGameTime">00:00</span> | Money: <span id="playerMoney">$0.00</span></p>
+            </div>
+            <div id="map-area"></div>
+            <div id="user-ui"></div>
+        </div>
+        <div id="terminalOutput"></div>
+        <div id="terminal-input-container">
+            <span id="terminal-prompt">$</span>
+            <input type="text" id="terminal-command-input" autocomplete="off" autofocus>
+        </div>
+    </div>
+
+    <script type="module">
+        import { Terminal, TerminalLib, VirtualOS, AddonExecutor } from './js/centralTerminal.js';
+        import { populateFileSystem } from './js/filesystem_addon.js';
+        // Import the fully refactored game addon
+        import { ReactorAddon } from './js/games/rctrl.js';
+
+        // --- Initialization ---
+        const outputDiv = document.getElementById('terminalOutput');
+        const inputElement = document.getElementById('terminal-command-input');
+        
+        const term = new Terminal('main', outputDiv);
+        const vOS = new VirtualOS();
+        const addonExecutor = new AddonExecutor();
+        const termLib = new TerminalLib(term, vOS, addonExecutor);
+
+        // Register the self-contained reactor game addon
+        addonExecutor.registerAddon(new ReactorAddon());
+
+        // Populate the file system
+        populateFileSystem(vOS);
+
+        // --- Event Listener ---
+        inputElement.addEventListener("keydown", e => {
+            if (e.key === "Enter") {
+                const commandText = inputElement.value.trim();
+                if (commandText) {
+                    term.print(`$ ${commandText}`);
+                    termLib.runCommand(commandText);
+                    inputElement.value = "";
+                }
+            }
+        });
+
+        // --- Initial Welcome Message ---
+        term.print("Welcome to the CWP Terminal.");
+        term.print("Type 'help' for a list of commands.");
+        term.print("Type 'run reactor' to start the game.");
+
+        inputElement.focus();
+        document.body.addEventListener('click', () => inputElement.focus());
+    </script>
+</body>
+</html>
