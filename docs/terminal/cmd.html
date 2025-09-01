@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <title>Terminal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/cmd.css">
-    <link rel="stylesheet" href="css/reactorCtrlStyle.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/cmd.css">
 </head>
 <body>
     <div id="pseudo-terminal">
@@ -29,7 +28,6 @@
         import { Terminal, TerminalLib, VirtualOS, AddonExecutor } from './js/centralTerminal.js';
         import { populateFileSystem } from './js/filesystem_addon.js';
         // Import the fully refactored game addon
-        import { ReactorAddon } from './js/games/rctrl.js';
 
         // --- Initialization ---
         const outputDiv = document.getElementById('terminalOutput');
